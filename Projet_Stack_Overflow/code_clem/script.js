@@ -1,3 +1,5 @@
+let myChart;
+
 // votre_script.js
 
 // Fonction pour mettre à jour les options de pays en fonction de la sélection de continent
@@ -65,45 +67,144 @@ async function getMoyenneRevenu(continent, pays, annees_experience) {
     // Filtrer les données en fonction des critères sélectionnés
     let filteredData = documentJson;
 
-    if (pays !== "all") {
+    if (pays !== "all" && annees_experience !== "") {
+        filteredData = filteredData.filter(item => item.Country === pays && item.YearsCodePro === annees_experience);
+        console.log("test1");
+    }
+    else if (pays !== "all") {
         filteredData = filteredData.filter(item => item.Country === pays);
+        console.log("test2");
     }
-
-    if (annees_experience !== "null") {
+    else if (annees_experience !== "") {
         filteredData = filteredData.filter(item => item.YearsCodePro === annees_experience);
+        console.log("test3");
     }
+    else {
+        filteredData = filteredData;
+        console.log("test4");
+    }
+    // Filtrer les données dont le revenu est NA
+    filteredData = filteredData.filter(item => item.CompTotal !== "NA");
+
+    
 
     // Groupement par PlatformWantToWorkWith
     const groupedData = filteredData.reduce((acc, item) => {
-        const platform = item.PlatformWantToWorkWith;
-        acc[platform] = acc[platform] || [];
-        acc[platform].push(item.CompTotal);
+        const platforms = item.PlatformWantToWorkWith.split(';');
+
+        platforms.forEach(platform => {
+            acc[platform] = acc[platform] || [];
+            acc[platform].push(item.CompTotal);
+        });
+
         return acc;
     }, {});
 
-    // Calcul de la moyenne pour chaque plateforme
     const moyenneRevenuParPlateforme = {};
 
     for (const platform in groupedData) {
         const revenus = groupedData[platform];
-        const moyenne = revenus.reduce((a, b) => a + b, 0) / revenus.length;
+        console.log(`Revenus pour ${platform}:`, revenus);
+    
+        let moyenne = 0;
+        //convertir les revenus en nombre
+        revenus.forEach((revenu, index) => {
+            revenus[index] = parseInt(revenu);
+        });
+    
+        if (revenus.length > 0) {
+            moyenne = revenus.reduce((a, b) => a + b, 0) / revenus.length;
+        }
+        else {
+            moyenne = 0;
+        }
+    
+        // La ligne ci-dessous doit être en dehors de la boucle if...else
         moyenneRevenuParPlateforme[platform] = moyenne;
     }
 
+    affiche_graphique(moyenneRevenuParPlateforme, pays, annees_experience);
     return moyenneRevenuParPlateforme;
 }
 
-// Exemple d'utilisation
-const continentSelect = document.getElementById("continent");
-const paysSelect = document.getElementById("pays");
-const experienceSelect = document.getElementById("experience");
 
-continentSelect.addEventListener("change", async () => {
+document.getElementById("continent").addEventListener("change", async () => {
     mettreAJourPays();
-    const continent = continentSelect.value;
-    const pays = paysSelect.value;
-    const experience = experienceSelect.value;
-    const moyenneRevenu = await getMoyenneRevenu(continent, pays, experience);
-    console.log(moyenneRevenu);
-
+    const moyenneRevenu = await getMoyenneRevenu(
+        document.getElementById("continent").value,
+        document.getElementById("pays").value,
+        document.getElementById("experience").value
+    );
+    console.log("Valeur experience:", typeof(document.getElementById("experience").value));
+    console.log("Moyenne Revenu par Plateforme:", moyenneRevenu);
 });
+
+document.getElementById("experience").addEventListener("change", async () => {
+    const moyenneRevenu = await getMoyenneRevenu(
+        document.getElementById("continent").value,
+        document.getElementById("pays").value,
+        document.getElementById("experience").value
+    );
+    console.log("Moyenne Revenu par Plateforme:", moyenneRevenu);
+});
+
+document.getElementById("pays").addEventListener("change", async () => {
+    const moyenneRevenu = await getMoyenneRevenu(
+        document.getElementById("continent").value,
+        document.getElementById("pays").value,
+        document.getElementById("experience").value
+    );
+    console.log("Moyenne Revenu par Plateforme:", moyenneRevenu);
+});
+
+
+function affiche_graphique(liste_moyenne_revenu, pays, annees_experience){
+    // Remplacez "graph-container" par l'ID réel de votre conteneur de graphe
+    var conteneurGraphe = document.getElementById("myChart");
+
+    if (myChart) {
+        myChart.destroy();
+    }
+
+    // Supprimez tous les enfants du conteneur pour réinitialiser le graphe
+    while (conteneurGraphe.firstChild) {
+        conteneurGraphe.removeChild(conteneurGraphe.firstChild);
+    }
+
+    // Creer un camembert avec les données de moyenne_revenu 
+    // et l'afficher dans le div d'id "graphique" avec la librairie chart.js
+    const ctx = document.getElementById('myChart').getContext('2d');
+
+    let labels = [];
+    let data = [];
+    couleurs = [];
+
+    for (const platform in liste_moyenne_revenu) {
+        labels.push(platform);
+        data.push(liste_moyenne_revenu[platform]);
+        const color = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+        couleurs.push(color);
+    }
+
+    myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Moyenne des revenus',
+                backgroundColor: couleurs,
+                data: data
+            }]
+        },
+        options: {
+            title: {
+                display: true,
+                text: `Moyenne des revenus par plateforme pour ${pays} avec ${annees_experience} années d'expérience`
+            }
+        }
+    });
+    
+
+
+
+}
