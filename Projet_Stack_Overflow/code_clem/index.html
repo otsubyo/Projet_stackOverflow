@@ -9,18 +9,19 @@
 </head>
 <body>
     <!-- Filtres pour l'utilisateur -->
-    <label for="experience">Sélectionnez le nombre d'années d'expérience :</label>
-    <select id="experience">
+    <label for="experience">Entrez le nombre d'années d'expérience :</label>
+    <input type="number" id="experience" min="0" max="100">
+    <!-- <select id="experience">
         <option value="0">Moins d'1 an</option>
         <option value="1-2">1-2 ans</option>
         <option value="3-5">3-5 ans</option>
         <option value="6-10">6-10 ans</option>
         <option value="10+">Plus de 10 ans</option>
-    </select>
+    </select> -->
 
     <label for="continent">Sélectionnez le continent :</label>
     <select id="continent">
-        <option value="choix">Veuillez choisir un continent</option>
+        <option value="all">Veuillez choisir un continent</option>
         <option value="Europe">Europe</option>
         <option value="Etats-unis">Etats-unis</option>
         <!-- Ajoutez plus de continents au besoin -->
@@ -28,7 +29,7 @@
 
     <label for="pays">Sélectionnez le pays :</label>
     <select id="pays">
-        <!-- Les options seront peuplées dynamiquement en fonction de la sélection du continent -->
+        <option value="all">Tous pays confondus</option>
     </select>
 
     <!-- Graphique -->

@@ -8,8 +8,10 @@ function mettreAJourPays() {
     const pays = getDistinctPays(continent);
     // On recupere l'element HTML select
     const selectPays = document.getElementById("pays");
-    // On supprime les options existantes
-    selectPays.innerHTML = "";
+    // On supprime les options existantes sauf la premiere
+    while (selectPays.options.length > 1) {
+        selectPays.removeChild(selectPays.lastChild);
+    }
     // On ajoute les options de pays
     
     pays.then(function(result){
@@ -47,4 +49,61 @@ async function getDistinctPays(continent){
     return Array.from(paysDistincts);   
 }
 
-document.getElementById("continent").addEventListener("change", mettreAJourPays);
+async function getMoyenneRevenu(continent, pays, annees_experience) {
+    let documentJson;
+
+    if (continent === "Europe") {
+        const response = await fetch("../data/survey_results_WE.json");
+        documentJson = await response.json();
+    } else if (continent === "Etats-unis") {
+        const response = await fetch("../data/survey_results_NA.json");
+        documentJson = await response.json();
+    } else {
+        return false;
+    }
+
+    // Filtrer les données en fonction des critères sélectionnés
+    let filteredData = documentJson;
+
+    if (pays !== "all") {
+        filteredData = filteredData.filter(item => item.Country === pays);
+    }
+
+    if (annees_experience !== "null") {
+        filteredData = filteredData.filter(item => item.YearsCodePro === annees_experience);
+    }
+
+    // Groupement par PlatformWantToWorkWith
+    const groupedData = filteredData.reduce((acc, item) => {
+        const platform = item.PlatformWantToWorkWith;
+        acc[platform] = acc[platform] || [];
+        acc[platform].push(item.CompTotal);
+        return acc;
+    }, {});
+
+    // Calcul de la moyenne pour chaque plateforme
+    const moyenneRevenuParPlateforme = {};
+
+    for (const platform in groupedData) {
+        const revenus = groupedData[platform];
+        const moyenne = revenus.reduce((a, b) => a + b, 0) / revenus.length;
+        moyenneRevenuParPlateforme[platform] = moyenne;
+    }
+
+    return moyenneRevenuParPlateforme;
+}
+
+// Exemple d'utilisation
+const continentSelect = document.getElementById("continent");
+const paysSelect = document.getElementById("pays");
+const experienceSelect = document.getElementById("experience");
+
+continentSelect.addEventListener("change", async () => {
+    mettreAJourPays();
+    const continent = continentSelect.value;
+    const pays = paysSelect.value;
+    const experience = experienceSelect.value;
+    const moyenneRevenu = await getMoyenneRevenu(continent, pays, experience);
+    console.log(moyenneRevenu);
+
+});
