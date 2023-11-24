@@ -1,0 +1,46 @@
+<!--
+1 2 5 Carl
+3 4 6 Clément
+-->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revenu moyen en fonction du niveau d'études :</title>
+    <!--chartjs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Filtres pour l'utilisateur -->
+    <label for="experience">Entrez le niveau d'études :</label>
+    <input type="number" id="niveau_etudes" min="0" max="100">
+    <!-- <select id="experience">
+        <option value="0">Moins d'1 an</option>
+        <option value="1-2">1-2 ans</option>
+        <option value="3-5">3-5 ans</option>
+        <option value="6-10">6-10 ans</option>
+        <option value="10+">Plus de 10 ans</option>
+    </select> -->
+
+    <label for="continent">Sélectionnez le continent :</label>
+    <select id="continent">
+        <option value="all">Veuillez choisir un continent</option>
+        <option value="Europe">Europe</option>
+        <option value="Etats-unis">Amérique du nord</option>
+    </select>
+
+    <label for="pays">Sélectionnez le pays :</label>
+    <select id="pays">
+        <option value="all">Tous pays confondus</option>
+    </select>
+
+    <!-- Graphique -->
+    <div style="width: 80%; margin: auto;">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <!--script pour le graphique -->
+    <script src="script.js"></script>
+</body>
+</html>
