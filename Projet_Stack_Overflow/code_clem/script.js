@@ -1,7 +1,5 @@
 let myChart;
 
-// votre_script.js
-
 // Fonction pour mettre à jour les options de pays en fonction de la sélection de continent
 function mettreAJourPays() {
     // On recupere la valeur du continent selectionné
@@ -27,10 +25,9 @@ function mettreAJourPays() {
 }
 
 
-
+// Fonction qui recupere dans les données JSON le pays en fonction du continent et qui renvoie un tableau de pays
 async function getDistinctPays(continent){
-    // Fonction qui recupere dans les données JSON le pays en fonction du continent
-    // et qui renvoie un tableau de pays
+    
 
     let documentJson;
 
@@ -51,6 +48,7 @@ async function getDistinctPays(continent){
     return Array.from(paysDistincts);   
 }
 
+// Fonction qui recupere dans les données JSON le pays en fonction du continent et qui renvoie un tableau de pays
 async function getMoyenneRevenu(continent, pays, annees_experience) {
     let documentJson;
 
@@ -94,7 +92,19 @@ async function getMoyenneRevenu(continent, pays, annees_experience) {
 
         platforms.forEach(platform => {
             acc[platform] = acc[platform] || [];
-            acc[platform].push(item.CompTotal);
+            // convertir les revenus en EURO avec le fichier conversion_revenu.js
+            // on teste si les 3 premiers carcateres de item.currency sont différents de EUR si oui on convertit
+            // convertir en nombre les revenus
+            item.CompTotal = parseInt(item.CompTotal);
+            if (item.Currency.substring(0,3) !== "EUR" && item.Currency !== "NaN") {
+                console.log("item.Currency:", item.Currency, item.Currency.substring(0,3));
+                console.log("item.CompTotal:", item.CompTotal);
+                item.CompTotal = convertirEnEur(item.CompTotal, item.Currency.substring(0,3));
+                console.log("item.CompTotal:", item.CompTotal);
+            }
+            if (item.CompTotal < 500000) {
+                acc[platform].push(item.CompTotal);
+            }
         });
 
         return acc;
@@ -104,13 +114,13 @@ async function getMoyenneRevenu(continent, pays, annees_experience) {
 
     for (const platform in groupedData) {
         const revenus = groupedData[platform];
-        console.log(`Revenus pour ${platform}:`, revenus);
+        // console.log(`Revenus pour ${platform}:`, revenus);
     
         let moyenne = 0;
         //convertir les revenus en nombre
-        revenus.forEach((revenu, index) => {
-            revenus[index] = parseInt(revenu);
-        });
+        // revenus.forEach((revenu, index) => {
+        //     revenus[index] = parseInt(revenu);
+        // });
     
         if (revenus.length > 0) {
             moyenne = revenus.reduce((a, b) => a + b, 0) / revenus.length;
