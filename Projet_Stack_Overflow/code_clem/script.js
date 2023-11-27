@@ -207,6 +207,18 @@ function affiche_graphique(liste_moyenne_revenu, pays, annees_experience){
             }]
         },
         options: {
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'left',
+                    align: 'start',
+                    labels: {
+                        boxWidth: 10,
+                        padding: 10,
+                        usePointStyle: true
+                    }
+                }
+            },
             title: {
                 display: true,
                 text: `Moyenne des revenus par plateforme pour ${pays} avec ${annees_experience} années d'expérience`
