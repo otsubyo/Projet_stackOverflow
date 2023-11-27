@@ -10,8 +10,8 @@
     <header>
         <ul id="menu">
             <li><a href="index.php">Accueil</a></li>
-            <li><a href="code_clem/index.html"> Plateformes de cloud </a></li>
-            <li><a href="code_clem/index2.html"> Technologies </a></li>
+            <li><a href="code_clem/index.php?groupBy=PlatformHaveWorkedWith">Plateformes de cloud </a></li>
+            <li><a href="code_clem/index.php?groupBy=WebframeHaveWorkedWith">Technologies </a></li>
         </ul>
     </header>
     <main>

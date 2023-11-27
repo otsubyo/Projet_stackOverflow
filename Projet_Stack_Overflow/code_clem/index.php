@@ -10,12 +10,17 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+    <?php
+        // prendre le groupBy dans l'url
+        $groupBy = $_GET['groupBy'];
+    ?>
     <header>
         <ul id="menu">
             <li><a href="../index.php">Accueil</a></li>
-            <li><a href="./index.html"> Plateformes de cloud </a></li>
-            <li><a href="./index2.html"> Technologies </a></li>
+            <li><a href="./index.php?groupBy=PlatformHaveWorkedWith">Plateformes de cloud </a></li>
+            <li><a href="./index.php?groupBy=WebframeHaveWorkedWith">Technologies </a></li>
         </ul>
+    </header>
     </header>
     <main>
         <div class="filtres">
@@ -42,6 +47,7 @@
             <select id="pays">
                 <option value="all">Tous pays confondus</option>
             </select>
+            <input type="hidden" id="groupBy" value="<?php echo $groupBy; ?>">
         </div>
 
         <!-- Graphique -->

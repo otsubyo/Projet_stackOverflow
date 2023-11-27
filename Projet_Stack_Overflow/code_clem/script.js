@@ -49,7 +49,7 @@ async function getDistinctPays(continent){
 }
 
 // Fonction qui recupere dans les données JSON le pays en fonction du continent et qui renvoie un tableau de pays
-async function getMoyenneRevenu(continent, pays, annees_experience) {
+async function getMoyenneRevenu(continent, pays, annees_experience,groupBy) {
     let documentJson;
 
     if (continent === "Europe") {
@@ -84,11 +84,19 @@ async function getMoyenneRevenu(continent, pays, annees_experience) {
     // Filtrer les données dont le revenu est NA
     filteredData = filteredData.filter(item => item.CompTotal !== "NA");
 
-    
+    let platforms;
 
-    // Groupement par PlatformWantToWorkWith
+    // Groupement par PlatformHaveWorkedWith  ou par WebframeHaveWorkedWith
     const groupedData = filteredData.reduce((acc, item) => {
-        const platforms = item.PlatformWantToWorkWith.split(';');
+        if (groupBy === "PlatformHaveWorkedWith") {
+            platforms = item.PlatformHaveWorkedWith.split(';');
+        }
+        else if (groupBy === "WebframeHaveWorkedWith") {
+            platforms = item.WebframeHaveWorkedWith.split(';');
+        }
+        else {
+            alert('erreur dans le groupement')  
+        }
 
         platforms.forEach(platform => {
             acc[platform] = acc[platform] || [];
@@ -97,10 +105,10 @@ async function getMoyenneRevenu(continent, pays, annees_experience) {
             // convertir en nombre les revenus
             item.CompTotal = parseInt(item.CompTotal);
             if (item.Currency.substring(0,3) !== "EUR" && item.Currency !== "NaN") {
-                console.log("item.Currency:", item.Currency, item.Currency.substring(0,3));
-                console.log("item.CompTotal:", item.CompTotal);
+                // console.log("item.Currency:", item.Currency, item.Currency.substring(0,3));
+                // console.log("item.CompTotal:", item.CompTotal);
                 item.CompTotal = convertirEnEur(item.CompTotal, item.Currency.substring(0,3));
-                console.log("item.CompTotal:", item.CompTotal);
+                // console.log("item.CompTotal:", item.CompTotal);
             }
             if (item.CompTotal < 500000) {
                 acc[platform].push(item.CompTotal);
@@ -133,7 +141,15 @@ async function getMoyenneRevenu(continent, pays, annees_experience) {
         moyenneRevenuParPlateforme[platform] = moyenne;
     }
 
-    affiche_graphique(moyenneRevenuParPlateforme, pays, annees_experience);
+    if (groupBy === "PlatformHaveWorkedWith") {
+        camembert(moyenneRevenuParPlateforme, pays, annees_experience);
+    }
+    else if (groupBy === "WebframeHaveWorkedWith") {
+        nuage_de_points(moyenneRevenuParPlateforme, pays, annees_experience);
+    }
+    else {
+        alert('erreur dans le groupement')  
+    }
     return moyenneRevenuParPlateforme;
 }
 
@@ -143,7 +159,8 @@ document.getElementById("continent").addEventListener("change", async () => {
     const moyenneRevenu = await getMoyenneRevenu(
         document.getElementById("continent").value,
         document.getElementById("pays").value,
-        document.getElementById("experience").value
+        document.getElementById("experience").value,
+        document.getElementById("groupBy").value
     );
     console.log("Valeur experience:", typeof(document.getElementById("experience").value));
     console.log("Moyenne Revenu par Plateforme:", moyenneRevenu);
@@ -153,7 +170,8 @@ document.getElementById("experience").addEventListener("change", async () => {
     const moyenneRevenu = await getMoyenneRevenu(
         document.getElementById("continent").value,
         document.getElementById("pays").value,
-        document.getElementById("experience").value
+        document.getElementById("experience").value,
+        document.getElementById("groupBy").value
     );
     console.log("Moyenne Revenu par Plateforme:", moyenneRevenu);
 });
@@ -162,13 +180,14 @@ document.getElementById("pays").addEventListener("change", async () => {
     const moyenneRevenu = await getMoyenneRevenu(
         document.getElementById("continent").value,
         document.getElementById("pays").value,
-        document.getElementById("experience").value
+        document.getElementById("experience").value,
+        document.getElementById("groupBy").value
     );
     console.log("Moyenne Revenu par Plateforme:", moyenneRevenu);
 });
 
 
-function affiche_graphique(liste_moyenne_revenu, pays, annees_experience){
+function camembert(liste_moyenne_revenu, pays, annees_experience){
     // Remplacez "graph-container" par l'ID réel de votre conteneur de graphe
     var conteneurGraphe = document.getElementById("myChart");
 
@@ -225,8 +244,71 @@ function affiche_graphique(liste_moyenne_revenu, pays, annees_experience){
             }
         }
     });
+}
+
+function nuage_de_points(liste_moyenne_revenu, pays, annees_experience){
+    // fonction qui crée un nuage de points avec les données de moyenne_revenu en fonction de la technologie
+
+    if (myChart) {
+        myChart.destroy();
+        while (myChart.firstChild) {
+            myChart.removeChild(conteneurGraphe.firstChild);
+        }
+    }
     
 
+    const ctx = document.getElementById('myChart').getContext('2d');
+
+    let labels = [];
+    let data = [];
+    couleurs = [];
+
+    for (const platform in liste_moyenne_revenu) {
+        labels.push(platform);
+        data.push(liste_moyenne_revenu[platform]);
+        const color = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+        couleurs.push(color);
+    }
+
+    myChart = new Chart(ctx, {
+        type: 'scatter',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Moyenne des revenus',
+                backgroundColor: couleurs,
+                data: data
+            }]
+        },
+        options: {
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'left',
+                    align: 'start',
+                    labels: {
+                        boxWidth: 10,
+                        padding: 10,
+                        usePointStyle: true
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    type: 'category',
+                    position: 'bottom'
+                },
+                y: {
+                    type: 'linear',
+                    position: 'left'
+                }
+            },
+            title: {
+                display: true,
+                text: `Moyenne des revenus par plateforme pour ${pays} avec ${annees_experience} années d'expérience`
+            }
+        }
+    });
 
 
 }
