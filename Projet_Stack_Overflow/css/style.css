@@ -44,7 +44,8 @@ main{
 h1 {
     font-size: 2.5em;
     text-align: center;
-    margin: 0;
+    width: 60vw;
+    margin-left: 20vw;
     padding: 0;
     margin-bottom : 6vh;
 
@@ -54,26 +55,26 @@ p{
     margin: 0;
     padding: 0;
     width: 60vw;
-    margin-left: 5vw;
+    margin-left: 20vw;
     text-align: justify;
     margin-bottom : 3vh;
 }
 #logoUT3{
     float: right;
-    width: 25vw;
+    height: 10vh;
     margin-right: 5vw;
-    margin-top: -7vh;
+    margin-top: 2vh;
 }
 #logoInfo{
-    float: right;
-    width: 22vw;
-    margin-right: 6vw;
-    margin-top: -7vh;
+    float: left;
+    height: 10vh;
+    margin-left: 5vw;
+    margin-top: 2vh;
 }
 footer{
     width: 100vw;
     padding-top: 2vh;
-    padding-bottom: 4vh;
+    padding-bottom: 20vh;
     height: 5vh;
     background-color: #333;
     font-size: 0.5em;
@@ -88,14 +89,19 @@ footer{
     width: 80vw;
     height: 5vh;
     margin-left: 10vw;
-    background-color:  lightblue;
     overflow: hidden;
     top: 8vh;
     z-index: 1;
     margin-bottom: 3vh;
     box-sizing: border-box;
-    border-radius: 20px;
     padding-left: 2vw;
+
+    /* Faire un beau design  */
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.40);
+    background-color: white;
+    padding-left: 2vw;
+    padding-right: 2vw;
+
 }
 
 .filtres input[type="number"]{
@@ -104,10 +110,10 @@ footer{
     margin-left: 1vw;
     margin-top: 1vh;
     margin-bottom: 1vh;
-    border-radius: 20px;
-    border: 1px solid black;
     box-sizing: border-box;
-    padding-left: 1vw;
+    border: 1px solid #333;
+    
+    
 }
 
 .filtres select{
@@ -116,8 +122,7 @@ footer{
     margin-left: 1vw;
     margin-top: 1vh;
     margin-bottom: 1vh;
-    border-radius: 20px;
-    border: 1px solid black;
+    border: 1px solid #333;
     box-sizing: border-box;
     padding-left: 1vw;
 }
@@ -131,12 +136,15 @@ footer{
     width: 80vw;
     height: 80vh;
     margin-left: 10vw;
-    background-color:  lightblue;
     overflow: hidden;
     top: 8vh;
     z-index: 1;
     margin-bottom: 3vh;
     box-sizing: border-box;
-    border-radius: 20px;
     padding-left: 2vw; 
+
+    background-color: white;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.40);
+    padding-left: 2vw;
+    padding-right: 2vw;
 }

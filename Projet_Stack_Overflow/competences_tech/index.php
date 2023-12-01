@@ -60,5 +60,10 @@
         <!-- Votre script pour créer le graphique -->
         <script src="script.js"></script>
     </main>
+    <footer>
+          <p> Projet réalisé par Clément Faux et Carl Premi </p>
+          <p> IUT Paul Sabatier - Toulouse </p>
+          <p> 2023-2024 </p>
+     </footer>
 </body>
 </html>

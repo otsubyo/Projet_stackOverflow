@@ -10,13 +10,15 @@
     <header>
         <ul id="menu">
             <li><a href="index.php">Accueil</a></li>
-            <li><a href="code_clem/index.php?groupBy=PlatformHaveWorkedWith">Plateformes de cloud </a></li>
-            <li><a href="code_clem/index.php?groupBy=WebframeHaveWorkedWith">Technologies </a></li>
+            <li><a href="competences_tech/index.php?groupBy=PlatformHaveWorkedWith">Plateformes de cloud </a></li>
+            <li><a href="competences_tech/index.php?groupBy=WebframeHaveWorkedWith">Technologies </a></li>
         </ul>
     </header>
     <main>
-        <h1> Projet Stack Overflow </h1>
+        <img src="img/Informatique-logo-TOULOUSE.jpg" alt="Logo Informatique" id="logoInfo">
         <img src="img/Logo_UT3.jpg" alt="Logo UT3" id="logoUT3">
+        <h1> Projet Stack Overflow </h1>
+        
         
         <p> Bienvenue sur notre site réalisé par Clément Faux et Carl Premi  lors d'un projet 
             de 3ème année de BUT Informatique à l'IUT Paul Sabatier de Toulouse.
@@ -26,7 +28,6 @@
             Vous pourrez ainsi comparer les revenus des pays entre eux en prenant en compte les compétences techniques
             l'experience professionelle ou encore les technologies utilisées.
         </p>
-        <img src="img/Informatique-logo-TOULOUSE.jpg" alt="Logo Informatique" id="logoInfo">
 
    </main>
     <footer>
