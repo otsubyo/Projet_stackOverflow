@@ -1,12 +1,15 @@
+<!--
+1 2 5 Carl
+3 4 6 Clément
+-->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Revenu moyen en fonction des plateformes de cloud</title>
-    <!-- Inclure Chart.js depuis CDN -->
+    <title>revenu moyen d’un professionnel en fonction de son nombre d’années d’expérience</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="./conversion_revenu.js"></script>
+    <script src="./moneyconverted.js"></script>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -14,13 +17,15 @@
         // prendre le groupBy dans l'url
         $groupBy = $_GET['groupBy'];
     ?>
+    <?php
+    // prendre le groupBy dans l'url s'il est défini, sinon, utilisez une valeur par défaut
+    $groupBy = isset($_GET['groupBy']) ? $_GET['groupBy'] : 'PlatformHaveWorkedWith';
+    ?>
+
     <header>
         <ul id="menu">
             <li><a href="../index.php">Accueil</a></li>
-            <li><a href="./index.php?groupBy=PlatformHaveWorkedWith">Plateformes de cloud </a></li>
-            <li><a href="./index.php?groupBy=WebframeHaveWorkedWith">Technologies </a></li>
-            <li><a href="./index.php?groupBy=LanguageHaveWorkedWith"></a></li>
-            
+            <li><a href="./index.php?groupBy=PlatformHaveWorkedWith">Expérience profesionnelle</a></li>
         </ul>
     </header>
     </header>
