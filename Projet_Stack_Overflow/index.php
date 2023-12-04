@@ -10,8 +10,9 @@
     <header>
         <ul id="menu">
             <li><a href="index.php">Accueil</a></li>
-            <li><a href="competences_tech/index.php?groupBy=PlatformHaveWorkedWith">Plateformes de cloud </a></li>
-            <li><a href="competences_tech/index.php?groupBy=WebframeHaveWorkedWith">Technologies </a></li>
+            <li><a href="competences_tech/index.php?groupBy=PlatformHaveWorkedWith">Revenu par plateformes de cloud </a></li>
+            <li><a href="competences_tech/index.php?groupBy=WebframeHaveWorkedWith">Revenu par technologies </a></li>
+            <li><a href="./techonologies/index.php">Top 5 des outils de com. par métiers</a>
         </ul>
     </header>
     <main>

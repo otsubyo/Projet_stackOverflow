@@ -6,21 +6,19 @@
     <title>Revenu moyen en fonction des plateformes de cloud</title>
     <!-- Inclure Chart.js depuis CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="./conversion_revenu.js"></script>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <?php
         // prendre le groupBy dans l'url
-        $groupBy = $_GET['groupBy'];
+        // $groupBy = $_GET['groupBy'];
     ?>
     <header>
         <ul id="menu">
             <li><a href="../index.php">Accueil</a></li>
-            <li><a href="./index.php?groupBy=PlatformHaveWorkedWith">Revenu par plateformes de cloud </a></li>
-            <li><a href="./index.php?groupBy=WebframeHaveWorkedWith">Revenu par technologies</a></li>
-            <li><a href="./index.php?groupBy=LanguageHaveWorkedWith"></a></li>
-            <li><a href="../techonologies/index.php">Top 5 des outils de com. par métiers</a>
+            <li><a href="../competences_tech/index.php?groupBy=PlatformHaveWorkedWith">Revenu par plateformes de cloud</a></li>
+            <li><a href="../competences_tech/index.php?groupBy=WebframeHaveWorkedWith">Revenu par technologies</a></li>
+            <li><a href="./index.php">Top 5 des outils de com. par métiers</a>
             
         </ul>
     </header>
@@ -28,15 +26,8 @@
     <main>
         <div class="filtres">
             <!-- Filtres pour l'utilisateur -->
-            <label for="experience">Entrez le nombre d'années d'expérience :</label>
-            <input type="number" id="experience" min="0" max="100">
-            <!-- <select id="experience">
-                <option value="0">Moins d'1 an</option>
-                <option value="1-2">1-2 ans</option>
-                <option value="3-5">3-5 ans</option>
-                <option value="6-10">6-10 ans</option>
-                <option value="10+">Plus de 10 ans</option>
-            </select> -->
+            <label for="top">étendue du top</label>
+            <input type="number" id="top" min="1" max="8" value="5">
 
             <label for="continent">Sélectionnez le continent :</label>
             <select id="continent">
@@ -46,11 +37,11 @@
                 <!-- Ajoutez plus de continents au besoin -->
             </select>
 
-            <label for="pays">Sélectionnez le pays :</label>
-            <select id="pays">
-                <option value="all">Tous pays confondus</option>
+            <label for="devType">Sélectionnez le métier :</label>
+            <select id="devType">
+                <option value="all">Tous métier confondus</option>
             </select>
-            <input type="hidden" id="groupBy" value="<?php echo $groupBy; ?>">
+            <!-- <input type="hidden" id="groupBy" value="<?php// echo $groupBy; ?>"> -->
         </div>
 
         <!-- Graphique -->
