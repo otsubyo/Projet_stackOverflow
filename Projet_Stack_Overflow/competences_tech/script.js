@@ -167,6 +167,10 @@ document.getElementById("continent").addEventListener("change", async () => {
 });
 
 document.getElementById("experience").addEventListener("change", async () => {
+    if (document.getElementById("continent").value === "all") {
+        alert("Veuillez selectionner un continent");
+        return;
+    }
     const moyenneRevenu = await getMoyenneRevenu(
         document.getElementById("continent").value,
         document.getElementById("pays").value,

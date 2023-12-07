@@ -10,15 +10,16 @@
 </head>
 <body>
     <?php
-        // prendre le groupBy dans l'url
-        // $groupBy = $_GET['groupBy'];
+        // prendre le filtre
+        $filter = $_GET['filtre'];
     ?>
     <header>
         <ul id="menu">
             <li><a href="../index.php">Accueil</a></li>
             <li><a href="../competences_tech/index.php?groupBy=PlatformHaveWorkedWith">Revenu par plateformes de cloud</a></li>
             <li><a href="../competences_tech/index.php?groupBy=WebframeHaveWorkedWith">Revenu par technologies</a></li>
-            <li><a href="./index.php">Top 5 des outils de com. par métiers</a>
+            <li><a href="./index.php?filtre=devType">Top 5 des outils de com. par métiers</a></li>
+            <li><a href="./index.php?filtre=os">Top 5 des outils de com. par OS</a></li>
             
         </ul>
     </header>
@@ -37,11 +38,12 @@
                 <!-- Ajoutez plus de continents au besoin -->
             </select>
 
-            <label for="devType">Sélectionnez le métier :</label>
-            <select id="devType">
-                <option value="all">Tous métier confondus</option>
+            <label for="filter">Sélectionnez 
+                <?php if( $filter == "devType" ) echo "le métier"; else echo "l'OS"; ?></label>
+            <select id="filter">
+                <option value="all">Tous</option>
             </select>
-            <!-- <input type="hidden" id="groupBy" value="<?php// echo $groupBy; ?>"> -->
+            <input type="hidden" id="typeFilter" value="<?php echo $filter; ?>">
         </div>
 
         <!-- Graphique -->

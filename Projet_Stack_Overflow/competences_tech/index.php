@@ -17,10 +17,10 @@
     <header>
         <ul id="menu">
             <li><a href="../index.php">Accueil</a></li>
-            <li><a href="./index.php?groupBy=PlatformHaveWorkedWith">Revenu par plateformes de cloud </a></li>
+            <li><a href="./index.php?groupBy=PlatformHaveWorkedWith">Revenu par plateformes de cloud</a></li>
             <li><a href="./index.php?groupBy=WebframeHaveWorkedWith">Revenu par technologies</a></li>
-            <li><a href="./index.php?groupBy=LanguageHaveWorkedWith"></a></li>
-            <li><a href="../techonologies/index.php">Top 5 des outils de com. par métiers</a>
+            <li><a href="../techonologies/index.php?filtre=devType">Top 5 des outils de com. par métiers</a></li>
+            <li><a href="../techonologies/index.php?filtre=os">Top 5 des outils de com. par OS</a></li>
             
         </ul>
     </header>
@@ -29,7 +29,7 @@
         <div class="filtres">
             <!-- Filtres pour l'utilisateur -->
             <label for="experience">Entrez le nombre d'années d'expérience :</label>
-            <input type="number" id="experience" min="0" max="100">
+            <input type="number" id="experience" min="1" max="100" >
             <!-- <select id="experience">
                 <option value="0">Moins d'1 an</option>
                 <option value="1-2">1-2 ans</option>
