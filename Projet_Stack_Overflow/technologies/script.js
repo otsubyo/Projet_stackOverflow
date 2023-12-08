@@ -289,3 +289,10 @@ document.getElementById("top").addEventListener("change", async () => {
     // console.log(top);
 });
 
+// Initialiser le graphe au chargement de la page
+getTopTechByFilter(
+    document.getElementById("filter").value,
+    document.getElementById("continent").value,
+    document.getElementById("top").value,
+);
+

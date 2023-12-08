@@ -19,11 +19,10 @@
             <li><a href="../index.php">Accueil</a></li>
             <li><a href="./index.php?groupBy=etudes">Revenu par annees d'etudes</a></li>
             <li><a href="./index.php?groupBy=exp">Revenu par annees d'experience</a></li>
-            <li><a href="./index.php?groupBy=PlatformHaveWorkedWith">Revenu par plateformes de cloud</a></li>
-            <li><a href="./index.php?groupBy=WebframeHaveWorkedWith">Revenu par technologies</a></li>
+            <li><a href="../competences_tech/index.php?groupBy=PlatformHaveWorkedWith">Revenu par plateformes de cloud</a></li>
+            <li><a href="../competences_tech/index.php?groupBy=WebframeHaveWorkedWith">Revenu par technologies</a></li>
             <li><a href="../technologies/index.php?filtre=devType">Top 5 des outils de com. par métiers</a></li>
             <li><a href="../technologies/index.php?filtre=os">Top 5 des outils de com. par OS</a></li>
-            
         </ul>
     </header>
     </header>
@@ -42,7 +41,6 @@
 
             <label for="continent">Sélectionnez le continent :</label>
             <select id="continent">
-                <option value="all">Veuillez choisir un continent</option>
                 <option value="Europe">Europe</option>
                 <option value="Etats-unis">North America</option>
                 <!-- Ajoutez plus de continents au besoin -->

@@ -42,7 +42,6 @@
 
             <label for="continent">Sélectionnez le continent :</label>
             <select id="continent">
-                <option value="all">Veuillez choisir un continent</option>
                 <option value="Europe">Europe</option>
                 <option value="Etats-unis">North America</option>
                 <!-- Ajoutez plus de continents au besoin -->
