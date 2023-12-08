@@ -328,6 +328,7 @@ function doughnut(liste_moyenne_revenu, pays, annees_experience){
     });
 }
 // Initialiser le graphe au chargement de la page
+mettreAJourPays();
 getMoyenneRevenu(
     document.getElementById("continent").value,
     document.getElementById("pays").value,

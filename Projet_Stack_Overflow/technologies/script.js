@@ -290,6 +290,12 @@ document.getElementById("top").addEventListener("change", async () => {
 });
 
 // Initialiser le graphe au chargement de la page
+if ( document.getElementById("typeFilter").value === "os") {
+    mettreAJourOS();
+}
+else {
+    mettreAJourMetier();
+}
 getTopTechByFilter(
     document.getElementById("filter").value,
     document.getElementById("continent").value,
