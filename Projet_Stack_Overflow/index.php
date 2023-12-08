@@ -10,10 +10,13 @@
     <header>
         <ul id="menu">
             <li><a href="index.php">Accueil</a></li>
-            <li><a href="competences_tech/index.php?groupBy=PlatformHaveWorkedWith">Revenu par plateformes de cloud </a></li>
+            <li><a href="./experience/index.php?groupBy=etudes">Revenu par annees d'etudes</a></li>
+            <li><a href="./experience/index.php?groupBy=exp">Revenu par annees d'experience</a></li>
+            <li><a href="competences_tech/index.php?groupBy=PlatformHaveWorkedWith">Revenu par plateformes de cloud</a></li>
             <li><a href="competences_tech/index.php?groupBy=WebframeHaveWorkedWith">Revenu par technologies </a></li>
-            <li><a href="./techonologies/index.php?filtre=devType">Top 5 des outils de com. par métiers</a></li>
-            <li><a href="./techonologies/index.php?filtre=os">Top 5 des outils de com. par OS</a></li>
+            <li><a href="./technologies/index.php?filtre=devType">Top 5 des outils de com. par métiers</a></li>
+            <li><a href="./technologies/index.php?filtre=os">Top 5 des outils de com. par OS</a></li>
+            
         </ul>
     </header>
     <main>

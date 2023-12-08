@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Revenu moyen en fonction des plateformes de cloud</title>
+    <title>Revenu moyen en fonction des annees d'experience</title>
     <!-- Inclure Chart.js depuis CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="./conversion_revenu.js"></script>
+    <script src="../conversion_revenu.js"></script>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -17,8 +17,8 @@
     <header>
         <ul id="menu">
             <li><a href="../index.php">Accueil</a></li>
-            <li><a href="../experience/index.php?groupBy=etudes">Revenu par annees d'etudes</a></li>
-            <li><a href="../experience/index.php?groupBy=exp">Revenu par annees d'experience</a></li>
+            <li><a href="./index.php?groupBy=etudes">Revenu par annees d'etudes</a></li>
+            <li><a href="./index.php?groupBy=exp">Revenu par annees d'experience</a></li>
             <li><a href="./index.php?groupBy=PlatformHaveWorkedWith">Revenu par plateformes de cloud</a></li>
             <li><a href="./index.php?groupBy=WebframeHaveWorkedWith">Revenu par technologies</a></li>
             <li><a href="../technologies/index.php?filtre=devType">Top 5 des outils de com. par métiers</a></li>
