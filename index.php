@@ -20,8 +20,8 @@
         </ul>
     </header>
     <main>
-        <img src="img/Informatique-logo-TOULOUSE.jpg" alt="Logo Informatique" id="logoInfo">
-        <img src="img/Logo_UT3.jpg" alt="Logo UT3" id="logoUT3">
+        <img src="images/Informatique-logo-TOULOUSE.jpg" alt="Logo Informatique" id="logoInfo">
+        <img src="images/Logo_UT3.jpg" alt="Logo UT3" id="logoUT3">
         <h1> Projet Stack Overflow </h1>
         
         
