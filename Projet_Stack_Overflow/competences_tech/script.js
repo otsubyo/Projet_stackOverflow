@@ -316,3 +316,11 @@ function nuage_de_points(liste_moyenne_revenu, pays, annees_experience){
 
 
 }
+// Initialiser le graphe au chargement de la page
+mettreAJourPays();
+getMoyenneRevenu(
+    document.getElementById("continent").value,
+    document.getElementById("pays").value,
+    document.getElementById("experience").value,
+    document.getElementById("groupBy").value
+);
