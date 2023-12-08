@@ -6,7 +6,7 @@
     <title>Revenu moyen en fonction des plateformes de cloud</title>
     <!-- Inclure Chart.js depuis CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="./conversion_revenu.js"></script>
+    <script src="../conversion_revenu.js"></script>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
