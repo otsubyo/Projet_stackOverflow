@@ -30,7 +30,7 @@
         </p>
         
         <p> Ce site a pour but de vous faire découvrir les revenus moyens des métiers de l'informatique dans les différents pays du monde.
-            Vous pourrez ainsi comparer les revenus des pays entre eux en prenant en compte les compétences techniques
+            Vous pourrez ainsi comparer les revenus des pays entre eux en prenant en compte les compétences techniques,
             l'experience professionelle ou encore les technologies utilisées.
         </p>
 
