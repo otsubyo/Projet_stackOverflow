@@ -28,6 +28,13 @@
     </header>
     </header>
     <main>
+    <?php
+        if ($groupBy === 'PlatformHaveWorkedWith') {
+            echo '<h1>Revenu moyen d’un professionnel en fonction des plateformes de cloud</h1>';
+        } elseif ($groupBy === 'WebframeHaveWorkedWith') {
+            echo '<h1>Revenu moyen d’un professionnel en fonction des frameworks de développement web</h1>';
+        }
+    ?>
         <div class="filtres">
             <!-- Filtres pour l'utilisateur -->
             <label for="experience">Entrez le nombre d'années d'expérience :</label>

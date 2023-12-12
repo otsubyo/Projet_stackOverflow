@@ -27,6 +27,13 @@
     </header>
     </header>
     <main>
+    <?php
+        if ($filter === 'devType') {
+            echo '<h1>Top 5 des systèmes d’exploitation utilisés par les professionnels en  fonction de leur métier</h1>';
+        } elseif ($filter === 'os') {
+            echo '<h1>Top 5 des outils de communication utilisés par les professionnels en fonction de leur métier</h1>';
+        }
+    ?>
         <div class="filtres">
             <!-- Filtres pour l'utilisateur -->
             <label for="top">étendue du top</label>

@@ -27,6 +27,13 @@
     </header>
     </header>
     <main>
+    <?php
+        if ($groupBy === 'exp') {
+            echo '<h1>Revenu moyen d’un professionnel en fonction de son nombre d’années d’expérience</h1>';
+        } elseif ($groupBy === 'etudes') {
+            echo '<h1>Revenu moyen d’un professionnel en fonction de son niveau d’études</h1>';
+        }
+    ?>
         <div class="filtres">
             <!-- Filtres pour l'utilisateur -->
             <label for="experience">Entrez le nombre d'années d'expérience ou d'études :</label>
