@@ -14,8 +14,8 @@
             <li><a href="./experience/index.php?groupBy=exp">Revenu par années d'experience</a></li>
             <li><a href="competences_tech/index.php?groupBy=PlatformHaveWorkedWith">Revenu par plateformes de cloud</a></li>
             <li><a href="competences_tech/index.php?groupBy=WebframeHaveWorkedWith">Revenu par technologies </a></li>
-            <li><a href="./technologies/index.php?filtre=devType">Top 5 des outils de communication par métiers</a></li>
-            <li><a href="./technologies/index.php?filtre=os">Top 5 des outils de communication par OS</a></li>
+            <li><a href="./technologies/index.php?filtre=devType">Top 5 des outils de communication par métier</a></li>
+            <li><a href="./technologies/index.php?filtre=os">Top 5 des systèmes d'exploitation par métier</a></li>
             
         </ul>
     </header>
