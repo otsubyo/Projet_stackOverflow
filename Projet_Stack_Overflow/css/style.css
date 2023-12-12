@@ -8,9 +8,10 @@ body, html {
     overflow-x: hidden;
     background-color: white;
 }
+
 #menu {
     height: 6vh;
-    background-color: #333;
+    background: linear-gradient(to right, #333, #555);
     overflow: hidden;
     position: fixed;
     top: 0;
@@ -18,13 +19,16 @@ body, html {
     margin: 0;
     margin-bottom: 3vh;
     width: 100vw;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    justify-content: center;
 }
+
 #menu li {
     float: left;
     list-style-type: none;
     height: 6vh;
-    display: flex; /* Utilise flexbox pour aligner le contenu */
-    align-items: center; /* Centre verticalement le contenu dans le conteneur flex */
+    display: flex;
+    align-items: center;
 }
 
 #menu li a {
@@ -36,10 +40,12 @@ body, html {
     text-decoration: none;
     width: 13vw;
     height: 100%;
-
+    transition: background-color 0.3s ease;
 }
+
 #menu li a:hover:not(.active) {
-    background-color: #111;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #C0C0C0;
 }
 
 main{
