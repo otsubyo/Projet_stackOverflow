@@ -33,11 +33,11 @@ async function getDistinctPays(continent){
 
     if (continent === "Europe") {
         // On récupère le fichier JSON data/survey_results_WE.json
-        const response = await fetch("../data/survey_results_WE.json");
+        const response = await fetch(getSurveyResultsWE());
         documentJson = await response.json();
     } else if (continent === "Etats-unis") {
         // On récupère le fichier JSON data/survey_results_NA.json
-        const response = await fetch("../data/survey_results_NA.json");
+        const response = await fetch(getSurveyResultsNA());
         documentJson = await response.json();
     } else {
         return false;
@@ -53,11 +53,11 @@ async function getLevelStudies(continent){
 
     if (continent === "Europe") {
         // On récupère le fichier JSON data/survey_results_WE.json
-        const response = await fetch("../data/survey_results_WE.json");
+        const response = await fetch(getSurveyResultsWE());
         documentJson = await response.json();
     } else if (continent === "Etats-unis") {
         // On récupère le fichier JSON data/survey_results_NA.json
-        const response = await fetch("../data/survey_results_NA.json");
+        const response = await fetch(getSurveyResultsNA());
         documentJson = await response.json();
     } else {
         return false;
@@ -75,10 +75,10 @@ async function getMoyenneRevenu(continent, pays, annees_experience,groupBy) {
     let documentJson;
 
     if (continent === "Europe") {
-        const response = await fetch("../data/survey_results_WE.json");
+        const response = await fetch(getSurveyResultsWE());
         documentJson = await response.json();
     } else if (continent === "Etats-unis") {
-        const response = await fetch("../data/survey_results_NA.json");
+        const response = await fetch(getSurveyResultsNA());
         documentJson = await response.json();
     } else {
         return false;

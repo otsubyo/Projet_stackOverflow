@@ -6,11 +6,11 @@ async function getDistinctMetier(continent){
 
     if (continent === "Europe") {
         // On récupère le fichier JSON data/survey_results_WE.json
-        const response = await fetch("../data/survey_results_WE.json");
+        const response = await fetch(getSurveyResultsWE());
         documentJson = await response.json();
     } else if (continent === "Etats-unis") {
         // On récupère le fichier JSON data/survey_results_NA.json
-        const response = await fetch("../data/survey_results_NA.json");
+        const response = await fetch(getSurveyResultsNA());
         documentJson = await response.json();
     } else {
         return false;
@@ -27,11 +27,11 @@ async function getDistinctOS(continent){
 
     if (continent === "Europe") {
         // On récupère le fichier JSON data/survey_results_WE.json
-        const response = await fetch("../data/survey_results_WE.json");
+        const response = await fetch(getSurveyResultsWE());
         documentJson = await response.json();
     } else if (continent === "Etats-unis") {
         // On récupère le fichier JSON data/survey_results_NA.json
-        const response = await fetch("../data/survey_results_NA.json");
+        const response = await fetch(getSurveyResultsNA());
         documentJson = await response.json();
     } else {
         return false;
@@ -106,10 +106,10 @@ async function getTopTechByFilter(filtre, continent, topCount) {
 
     // Etape1 : Récupérer les données en fonction du continent
     if (continent === "Europe") {
-        const response = await fetch("../data/survey_results_WE.json");
+        const response = await fetch(getSurveyResultsWE());
         documentJson = await response.json();
     } else if (continent === "Etats-unis") {
-        const response = await fetch("../data/survey_results_NA.json");
+        const response = await fetch(getSurveyResultsNA());
         documentJson = await response.json();
     } else {
         return false;

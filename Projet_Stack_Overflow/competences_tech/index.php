@@ -7,6 +7,7 @@
     <!-- Inclure Chart.js depuis CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../conversion_revenu.js"></script>
+    <script src="../config.js"></script>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
