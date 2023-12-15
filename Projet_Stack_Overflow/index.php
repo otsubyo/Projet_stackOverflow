@@ -25,7 +25,7 @@
         <h1> Projet Stack Overflow </h1>
         
         
-        <p> Bienvenue sur notre site réalisé par Clément Faux et Carl Premi  lors d'un projet 
+        <p> Bienvenue sur le site de visualisation de données réalisé par Clément Faux et Carl Premi  lors d'un projet 
             de 3ème année de BUT Informatique à l'IUT Paul Sabatier de Toulouse.
         </p>
         
