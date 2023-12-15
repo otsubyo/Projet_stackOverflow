@@ -163,7 +163,7 @@ p{
 }
 footer{
     width: 100vw;
-    height: 40vh;
+    height: 20vh;
     padding-top: 2vh;
     padding-bottom: 20vh;
     background-color: #333;
@@ -178,14 +178,14 @@ footer{
     top: 0;
     display: inline-block;
     width: 40vw;
-    height: 50vh;
+    height: 20vh;
     text-align: center;
 
 }
 #footer_right{
     display: inline-block;
     width: 40vw;
-    height: 50vh;
+    height: 20vh;
     text-align: center;
 }
 #footer_right > a{

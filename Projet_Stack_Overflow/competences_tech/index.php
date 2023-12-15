@@ -71,9 +71,17 @@
         <script src="script.js"></script>
     </main>
     <footer>
+        <div id = "footer_left">
           <p> Projet réalisé par Clément Faux et Carl Premi </p>
           <p> IUT Paul Sabatier - Toulouse </p>
           <p> 2023-2024 </p>
+          
+        </div>
+        <div id = "footer_right">
+          <p> Contact : </p>
+          <a href="https://www.linkedin.com/in/carlpremi"> <img src="../img/LinkedIn_logo_initials.png" alt="linkedin" id="linkedin"> <p>Carl Premi</p> </a>
+          <a href="https://www.linkedin.com/in/clementfaux"><img src="../img/LinkedIn_logo_initials.png" alt="linkedin" id="linkedin"> <p>Clément Faux</p> </a>
+        </div>
      </footer>
 </body>
 </html>
