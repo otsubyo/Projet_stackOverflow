@@ -86,19 +86,7 @@ p{
     margin-left: 5vw;
     margin-top: 2vh;
 }
-footer{
-    width: 100vw;
-    padding-top: 2vh;
-    padding-bottom: 20vh;
-    height: 5vh;
-    background-color: #333;
-    font-size: 0.5em;
-    color: white;
-    overflow: hidden;
-    bottom: 0;
-    z-index: 1;
-    box-sizing: border-box;
-}
+
 
 .filtres{
     width: 80vw;
@@ -172,4 +160,42 @@ footer{
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.40);
     margin-bottom: 3vh;
     
+}
+footer{
+    width: 100vw;
+    height: 40vh;
+    padding-top: 2vh;
+    padding-bottom: 20vh;
+    background-color: #333;
+    font-size: 0.5em;
+    color: white;
+    overflow: hidden;
+    bottom: 0;
+    z-index: 1;
+    box-sizing: border-box;
+}
+#footer_left{
+    top: 0;
+    display: inline-block;
+    width: 40vw;
+    height: 50vh;
+    text-align: center;
+
+}
+#footer_right{
+    display: inline-block;
+    width: 40vw;
+    height: 50vh;
+    text-align: center;
+}
+#footer_right > a{
+    display: block;
+    text-decoration: none;
+    color: white;
+}
+
+#linkedin{
+    float: left;
+    height: 4vh;
+    margin-left: 43vh;
 }
