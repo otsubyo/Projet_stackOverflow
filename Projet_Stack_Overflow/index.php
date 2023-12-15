@@ -34,6 +34,8 @@
             l'experience professionelle ou encore les technologies utilisées.
         </p>
 
+        <img src="./img/20231215_105325.jpg" id="image_esprit_equipe"> 
+
    </main>
     <footer>
           <p> Projet réalisé par Clément Faux et Carl Premi </p>
