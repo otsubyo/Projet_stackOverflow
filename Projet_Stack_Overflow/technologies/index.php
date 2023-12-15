@@ -37,7 +37,7 @@
     ?>
         <div class="filtres">
             <!-- Filtres pour l'utilisateur -->
-            <label for="top">étendue du top</label>
+            <label for="top">Étendue du top : </label>
             <input type="number" id="top" min="1" max="8" value="5">
 
             <label for="continent">Sélectionnez le continent :</label>
@@ -48,7 +48,7 @@
             </select>
 
             <label for="filter">Sélectionnez 
-                <?php if( $filter == "devType" ) echo "le métier"; else echo "l'OS"; ?></label>
+                <?php if( $filter == "devType" ) echo "le métier :"; else echo "l'OS :"; ?></label>
             <select id="filter">
                 <option value="all">Tous</option>
             </select>
